@@ -1,6 +1,5 @@
 #!/bin/bash
 
-for x in list do
 
     userid=$(id -u)
 
@@ -11,19 +10,20 @@ for x in list do
     else 
         echo "running with root access"
     
+        for x in list do
+            echo "installing $x"
+            dnf install $x -y
+            if [ $?=0 ]; then
+                echo "$x installation completed"
 
-        echo "installing $x"
-        dnf install $x -y
-    if [ $?=0 ]; then
-        echo "$x installation completed"
+            else
+                echo " $x installation failed"
 
-    else
-        echo " $x installation failed"
+            fi
+
+        done
 
     fi
-fi
-
-done
 
 
 

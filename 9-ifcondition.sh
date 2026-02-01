@@ -1,14 +1,17 @@
 #!/bin/bash
 
-Num=$@
-num1=$Num%2
+userid=$(id -u)
 
-if [$num1 -eq 0] ; then
-echo "$Num is even number"
-echo "$num1"
+if [$userid -ne 0]; then
+    echo "Please run this script with root access"
+    Exit 1
+fi
+echo "installing nginx"
+dnf install nginx -y
+if [$?=0]; then
+    echo "nginx installation completed"
 
 else
+    echo "installation failed"
 
-
-echo "$Num is odd number"
 fi

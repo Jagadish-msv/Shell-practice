@@ -11,14 +11,14 @@ do
                     --instance-type t3.micro \
                     --security-group-ids $SG_ID \
                     --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$instance}]" \
-                    --query 'Insatnce[0] , InstanceId' \
+                    --query 'Insatnce[0].InstanceId' \
                     --output text 
                 )
 
         if [ $instance == "frontend" ]; then
             ip=$(
                     aws ec2 describe-instances \
-                    --instances-ids $Instance_ID \
+                    --instance-ids $Instance_ID \
                     --query 'Reservations[].Instances[].PublicIpAddress' \
                     --output text
                 )
@@ -28,7 +28,7 @@ do
         else
             ip=$(
                     aws ec2 describe-instances \
-                    --instances-ids $Instance_ID \
+                    --instance-ids $Instance_ID \
                     --query 'Reservations[].Instances[].PrivateIpAddress' \
                     --output text
                 )

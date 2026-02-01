@@ -1,6 +1,6 @@
 #!/bin/bash
 
-userid=$((id -u))
+userid=$(id -u)
 
 if [ $userid -eq 0 ]; then
     echo "Please run this script with root access"

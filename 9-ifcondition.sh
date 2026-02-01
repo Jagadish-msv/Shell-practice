@@ -4,11 +4,15 @@ userid=$((id -u))
 
 if [ $userid -ne 0 ]; then
     echo "Please run this script with root access"
-    Exit 1
+    exit 1
+   
+else 
+    echo "running with root access"
+    
 fi
 echo "installing nginx"
 dnf install nginx -y
-if [$?=0]; then
+if [ $?=0 ]; then
     echo "nginx installation completed"
 
 else

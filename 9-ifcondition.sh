@@ -9,13 +9,14 @@ if [ $userid -ne 0 ]; then
 else 
     echo "running with root access"
     
-fi
-echo "installing nginx"
-dnf install nginx -y
-if [ $?=0 ]; then
-    echo "nginx installation completed"
 
-else
-    echo "installation failed"
+    echo "installing nginx"
+    dnf install nginx -y
+    if [ $?=0 ]; then
+        echo "nginx installation completed"
 
+    else
+        echo "installation failed"
+
+    fi
 fi

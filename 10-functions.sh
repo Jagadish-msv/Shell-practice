@@ -1,6 +1,6 @@
 #!/bin/bash
 
-
+    list=$1
     userid=$(id -u)
 
     if [ $userid -ne 0 ]; then

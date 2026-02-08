@@ -14,7 +14,7 @@ if [ -d $1 ]; then
     echo " $1 is the directory"
     echo "contents :"
     ls -l "$1"
-    exit 0
+    
 else 
     echo "$1 is file"
 

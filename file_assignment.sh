@@ -8,7 +8,7 @@ fi
 
 if [ ! -e $1 ]; then
     echo " $1 is not the file path"
-    exit 0
+    
 fi
 if [ -d $1 ]; then
     echo " $1 is the directory"
